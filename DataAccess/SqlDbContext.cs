@@ -1,0 +1,14 @@
+﻿using Entities;
+using Microsoft.EntityFrameworkCore;
+
+namespace DataAccess
+{
+    public class SqlDbContext:DbContext
+    {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-AQGNSHA;Initial Catalog=reactApi;Integrated Security=True");
+        }
+        public DbSet<User> Users { get; set; }
+    }
+}
